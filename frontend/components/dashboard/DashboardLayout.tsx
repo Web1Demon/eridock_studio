@@ -255,7 +255,7 @@ function UserRow({ collapsed }: { collapsed: boolean }) {
             initial={{ opacity: 0, y: 15, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             style={{
               position: "absolute",
               bottom: "calc(100% + 12px)",
@@ -601,7 +601,7 @@ function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void 
             initial={{ opacity: 0, y: -16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.96 }}
-            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             style={{
               position: "fixed",
               top: "15%",
@@ -801,7 +801,7 @@ function NotificationPanel({ onClose }: { onClose: () => void }) {
         initial={{ opacity: 0, y: -8, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -8, scale: 0.97 }}
-        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         style={{
           position: "absolute",
           top: "calc(100% + 8px)",
@@ -888,7 +888,7 @@ function NewMenu({ onClose }: { onClose: () => void }) {
         initial={{ opacity: 0, y: -8, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -8, scale: 0.97 }}
-        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         style={{
           position: "absolute",
           top: "calc(100% + 8px)",
@@ -1243,7 +1243,7 @@ function PanelSection({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             style={{ overflow: "hidden" }}
           >
             <div style={{ padding: "0 18px 16px" }}>{children}</div>
@@ -1337,7 +1337,7 @@ function ContextPanel({ open }: { open: boolean }) {
                     key={i}
                     initial={{ opacity: 0, x: 8 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.07, duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ delay: i * 0.07, duration: 0.3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                     style={{
                       padding: "9px 11px",
                       borderRadius: 9,
@@ -1383,7 +1383,7 @@ function ContextPanel({ open }: { open: boolean }) {
                       strokeDasharray={138.2}
                       initial={{ strokeDashoffset: 138.2 }}
                       animate={{ strokeDashoffset: 138.2 * (1 - publishRing.score / 100) }}
-                      transition={{ duration: 1.3, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 1.3, delay: 0.3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                     />
                   </svg>
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
@@ -1421,7 +1421,7 @@ function ContextPanel({ open }: { open: boolean }) {
                     key={i}
                     initial={{ width: 0 }}
                     animate={{ width: `${(seg.count / total) * 100}%` }}
-                    transition={{ duration: 0.8, delay: 0.4 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.8, delay: 0.4 + i * 0.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                     style={{ height: "100%", background: seg.color, borderRadius: 9999 }}
                   />
                 ))}
@@ -1481,7 +1481,7 @@ function ContextPanel({ open }: { open: boolean }) {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "73%" }}
-                    transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                     style={{ height: "100%", borderRadius: 9999, background: "#16A34A" }}
                   />
                 </div>
@@ -1582,7 +1582,7 @@ function ContextPanel({ open }: { open: boolean }) {
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${d.pct}%` }}
-                        transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                         style={{ height: "100%", borderRadius: 9999, background: d.color }}
                       />
                     </div>

@@ -52,7 +52,7 @@ function FloatInput({
               ? "rgba(0,0,0,0.38)"
               : "rgba(0,0,0,0.38)",
           }}
-          transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="absolute left-[14px] pointer-events-none font-medium z-10 select-none"
           style={{ letterSpacing: "-0.01em", lineHeight: 1 }}
         >
@@ -263,7 +263,7 @@ function Checkbox({
           borderColor: checked ? "var(--color-brand)" : "rgba(0,0,0,0.18)",
           scale: checked ? [1, 0.88, 1.04, 1] : 1,
         }}
-        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         style={{
           width: 16,
           height: 16,
@@ -283,7 +283,7 @@ function Checkbox({
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
-              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
               width="9" height="7" viewBox="0 0 9 7" fill="none"
             >
               <path d="M1 3.5L3.5 6L8 1" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -352,7 +352,7 @@ export default function SignInForm() {
   };
   const item = {
     hidden: { opacity: 0, y: 14, filter: "blur(4px)" },
-    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
   };
 
   return (

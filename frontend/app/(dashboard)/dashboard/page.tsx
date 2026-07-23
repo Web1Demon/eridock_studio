@@ -235,7 +235,7 @@ function LessonCard({ lesson, index }: { lesson: typeof PIPELINE[0]; index: numb
     <motion.div
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1 + index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: 0.1 + index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
       onHoverStart={() => setHov(true)}
       onHoverEnd={() => setHov(false)}
       style={{
@@ -327,7 +327,7 @@ function PriorityItem({ item, index }: { item: typeof NEEDS_APPROVAL[0]; index: 
     <motion.div
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.2 + index * 0.1, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: 0.2 + index * 0.1, duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
       onHoverStart={() => setHov(true)}
       onHoverEnd={() => setHov(false)}
       style={{
@@ -433,7 +433,7 @@ const stagger = {
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 function DailyNugget() {

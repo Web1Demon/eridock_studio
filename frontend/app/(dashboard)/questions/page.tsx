@@ -2124,7 +2124,7 @@ export default function QuestionsWorkspace() {
 
           <AnimatePresence>
             {rightOpen && (
-              <motion.div initial={{ width: 0, opacity: 0 }} animate={{ width: 300, opacity: 1 }} exit={{ width: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              <motion.div initial={{ width: 0, opacity: 0 }} animate={{ width: 300, opacity: 1 }} exit={{ width: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                 style={{ borderLeft: "1px solid var(--app-border-glow)", overflow: "hidden", flexShrink: 0, display: "flex", flexDirection: "column", background: "var(--app-card)" }}>
                 <InspectorPanel
                   q={selectedQ}

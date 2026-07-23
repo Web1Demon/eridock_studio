@@ -172,7 +172,7 @@ export default function LessonLibrary() {
       <div style={{padding:"20px 56px",background:"var(--app-bg)",display:"flex",gap:12,alignItems:"center",borderBottom:"1px solid var(--app-border-glow)",flexWrap:"wrap"}}>
 
         {/* Search */}
-        <motion.div animate={{width:searchFocused?320:240}} transition={{duration:0.3,ease:[0.16,1,0.3,1]}} style={{position:"relative",flexShrink:0}}>
+        <motion.div animate={{width:searchFocused?320:240}} transition={{duration:0.3,ease:[0.16,1,0.3,1] as [number, number, number, number]}} style={{position:"relative",flexShrink:0}}>
           <Search size={14} style={{position:"absolute",left:13,top:"50%",transform:"translateY(-50%)",color:searchFocused?"var(--color-brand)":"var(--app-border)",transition:"color 0.2s"}}/>
           <input value={search} onChange={e=>setSearch(e.target.value)}
             onFocus={()=>setSearchFocused(true)} onBlur={()=>setSearchFocused(false)}
@@ -211,7 +211,7 @@ export default function LessonLibrary() {
               return (
                 <motion.button key={s}
                   initial={{opacity:0,x:-10,scale:0.9}} animate={{opacity:1,x:0,scale:1}} exit={{opacity:0,x:-10,scale:0.9}}
-                  transition={{duration:0.22,delay:i*0.04,ease:[0.16,1,0.3,1]}}
+                  transition={{duration:0.22,delay:i*0.04,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
                   onClick={()=>handleStatusClick(s)}
                   style={{padding:"7px 14px",  borderRadius:20,border:`1.5px solid ${active?cfg.color:"var(--app-border-glow)"}`,background:active?cfg.bg:"var(--app-card)",fontSize:"12px",fontWeight:active?700:500,color:active?cfg.color:"var(--app-text-secondary)",cursor:"pointer",transition:"all 0.15s",whiteSpace:"nowrap"}}>
                   {cfg.pulse&&active&&<span style={{display:"inline-block",width:6,height:6,borderRadius:"50%",background:cfg.color,marginRight:5,verticalAlign:"middle",animation:"pulse 1.6s ease-in-out infinite"}}/>}
@@ -273,7 +273,7 @@ function HealthRing({score,size,showLabel}:{score:number;size:number;showLabel?:
         <motion.circle cx={size/2} cy={size/2} r={r} stroke={color} strokeWidth={3} fill="none" strokeLinecap="round"
           initial={{strokeDasharray:`0 ${circ}`}}
           animate={{strokeDasharray:`${(score/100)*circ} ${circ-(score/100)*circ}`}}
-          transition={{duration:0.9,ease:[0.16,1,0.3,1]}}/>
+          transition={{duration:0.9,ease:[0.16,1,0.3,1] as [number, number, number, number]}}/>
       </svg>
       {showLabel&&<span style={{fontSize:"12px",fontWeight:680,color,letterSpacing:"-0.02em"}}>{score}</span>}
     </div>
@@ -389,7 +389,7 @@ function LessonGridCard({lesson:l,index,onOpen}:{lesson:LessonCard;index:number;
     <motion.article
       layout
       initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} exit={{opacity:0,scale:0.96}}
-      transition={{duration:0.4,delay:index*0.05,ease:[0.16,1,0.3,1]}}
+      transition={{duration:0.4,delay:index*0.05,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
       onHoverStart={()=>setHovered(true)} onHoverEnd={()=>setHovered(false)}
       style={{background: "var(--app-card)",borderRadius:20,border:"1px solid var(--app-border-glow)",overflow:"hidden",cursor:"pointer",position:"relative",boxShadow:hovered?"0 20px 48px var(--app-border-glow)":"0 2px 8px var(--app-border-glow)",transform:hovered?"translateY(-4px)":"translateY(0)",transition:"transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.3s"}}
     >
@@ -422,7 +422,7 @@ function LessonGridCard({lesson:l,index,onOpen}:{lesson:LessonCard;index:number;
           <p style={{fontSize:"9px",fontWeight:700,letterSpacing:"0.07em",textTransform:"uppercase",color:"var(--app-border)",marginBottom:5}}>Structure</p>
           <div style={{height:5,borderRadius:99,display:"flex",overflow:"hidden",gap:1.5}}>
             {l.strip.map((seg,i)=>(
-              <motion.div key={i} initial={{scaleX:0,opacity:0}} animate={{scaleX:1,opacity:1}} transition={{delay:0.3+i*0.05,duration:0.4,ease:[0.16,1,0.3,1]}}
+              <motion.div key={i} initial={{scaleX:0,opacity:0}} animate={{scaleX:1,opacity:1}} transition={{delay:0.3+i*0.05,duration:0.4,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
                 style={{height:"100%",width:`${seg.width}%`,background:seg.color,borderRadius:99,transformOrigin:"left"}}/>
             ))}
           </div>
@@ -448,7 +448,7 @@ function LessonGridCard({lesson:l,index,onOpen}:{lesson:LessonCard;index:number;
       {/* ── BOTTOM DRAWER ── slides up on hover */}
       <motion.div
         initial={{y:"100%"}} animate={{y:hovered?"0%":"100%"}}
-        transition={{duration:0.28,ease:[0.16,1,0.3,1]}}
+        transition={{duration:0.28,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
         style={{position:"absolute",bottom:0,left:0,right:0,background: "var(--app-bg)",backdropFilter:"blur(12px)",borderTop:"1px solid var(--app-border-glow)",padding:"10px 16px",display:"flex",gap:6,alignItems:"center"}}
       >
         {ACTIONS.map(a=>{
@@ -507,7 +507,7 @@ function LessonListRow({lesson:l,index,onOpen}:{lesson:LessonCard;index:number;o
       {/* Sliding action drawer */}
       <motion.div
         initial={{x:"100%",opacity:0}} animate={{x:hovered?"0%":"100%",opacity:hovered?1:0}}
-        transition={{duration:0.25,ease:[0.16,1,0.3,1]}}
+        transition={{duration:0.25,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
         style={{position:"absolute",right:0,top:0,bottom:0,display:"flex",alignItems:"center",gap:6,padding:"0 16px",background:"linear-gradient(to left,#fff 70%,transparent)",paddingLeft:40}}
       >
         {[{icon:Pen,label:"Edit",fn:onOpen},{icon:Eye,label:"Preview",fn:()=>{}},{icon:Send,label:"Push",fn:()=>{}},{icon:Copy,label:"Duplicate",fn:()=>{}},{icon:Trash2,label:"Delete",fn:()=>{}}].map(a=>{
@@ -775,7 +775,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
 
       <div style={{position:"fixed",inset:0,zIndex:201,display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
         <motion.div initial={{opacity:0,y:28,scale:0.95}} animate={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:16,scale:0.97}}
-          transition={{duration:0.4,ease:[0.16,1,0.3,1]}}
+          transition={{duration:0.4,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
           style={{width:"100%",maxWidth:920,background: "var(--app-card)",borderRadius:28,boxShadow:"0 40px 100px rgba(0,0,0,0.24)",overflow:"hidden",display:"flex",flexDirection:"column",maxHeight:"92vh"}}>
 
           {/* Header */}
@@ -810,7 +810,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
 
                 {/* STEP 1 — Curriculum */}
                 {step===1&&(
-                  <motion.div key="s1" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1]}}>
+                  <motion.div key="s1" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1] as [number, number, number, number]}}>
                     <p style={{fontSize:"11.5px",fontWeight:750,letterSpacing:"0.08em",textTransform:"uppercase",color:"var(--color-brand)",marginBottom:10}}>Step 1 of 4</p>
                     <h2 style={{fontSize:"26px",fontWeight:750,color: "var(--app-text-primary)",letterSpacing:"-0.03em",marginBottom:8}}>Which exam are you building for?</h2>
                     <p style={{fontSize:"14px",color:"var(--app-text-secondary)",marginBottom:30,lineHeight:1.6}}>Your choice shapes the curriculum structure and what subjects are available.</p>
@@ -846,7 +846,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
 
                 {/* STEP 2 — Subject / Topic / Subtopic */}
                 {step===2&&(
-                  <motion.div key="s2" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1]}}>
+                  <motion.div key="s2" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1] as [number, number, number, number]}}>
                     <p style={{fontSize:"11.5px",fontWeight:750,letterSpacing:"0.08em",textTransform:"uppercase",color:"#4F46E5",marginBottom:10}}>Step 2 of 4</p>
                     <h2 style={{fontSize:"26px",fontWeight:750,color: "var(--app-text-primary)",letterSpacing:"-0.03em",marginBottom:8}}>Map to the Knowledge Tree</h2>
                     <p style={{fontSize:"14px",color:"var(--app-text-secondary)",marginBottom:28,lineHeight:1.6}}>
@@ -907,7 +907,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
 
                 {/* STEP 3 — Identity */}
                 {step===3&&(
-                  <motion.div key="s3" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1]}}>
+                  <motion.div key="s3" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1] as [number, number, number, number]}}>
                     <p style={{fontSize:"11.5px",fontWeight:750,letterSpacing:"0.08em",textTransform:"uppercase",color:"#10B981",marginBottom:10}}>Step 3 of 4</p>
                     <h2 style={{fontSize:"26px",fontWeight:750,color: "var(--app-text-primary)",letterSpacing:"-0.03em",marginBottom:8}}>Name your lesson</h2>
                     <p style={{fontSize:"14px",color:"var(--app-text-secondary)",marginBottom:28,lineHeight:1.6}}>
@@ -946,7 +946,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
 
                 {/* STEP 4 — Template */}
                 {step===4&&(
-                  <motion.div key="s4" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1]}}>
+                  <motion.div key="s4" initial={{opacity:0,x:24}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-24}} transition={{duration:0.3,ease:[0.16,1,0.3,1] as [number, number, number, number]}}>
                     <p style={{fontSize:"11.5px",fontWeight:750,letterSpacing:"0.08em",textTransform:"uppercase",color:"#0284C7",marginBottom:10}}>Step 4 of 4</p>
                     <h2 style={{fontSize:"26px",fontWeight:750,color: "var(--app-text-primary)",letterSpacing:"-0.03em",marginBottom:8}}>Choose your canvas</h2>
                     <p style={{fontSize:"14px",color:"var(--app-text-secondary)",marginBottom:28,lineHeight:1.6}}>
@@ -977,7 +977,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
               {/* Decorative bg circle */}
               <div style={{position:"absolute",bottom:-60,right:-60,width:240,height:240,borderRadius:"50%",background:`${currentStepCfg.color}08`,pointerEvents:"none"}}/>
               <AnimatePresence mode="wait">
-                <motion.div key={step} initial={{opacity:0,scale:0.92}} animate={{opacity:1,scale:1}} exit={{opacity:0,scale:0.9}} transition={{duration:0.35,ease:[0.16,1,0.3,1]}}
+                <motion.div key={step} initial={{opacity:0,scale:0.92}} animate={{opacity:1,scale:1}} exit={{opacity:0,scale:0.9}} transition={{duration:0.35,ease:[0.16,1,0.3,1] as [number, number, number, number]}}
                   style={{width:"100%",height:260}}>
                   <IllustComp/>
                 </motion.div>

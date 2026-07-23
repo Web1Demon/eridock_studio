@@ -169,7 +169,7 @@ function updateNode(root: CurriculumNode, id: string, fn: (n: CurriculumNode) =>
 /* ─────────────────────────────────────────────────────────────────
    ANIMATION TOKENS
 ───────────────────────────────────────────────────────────────── */
-const fadeUp = { hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } } };
+const fadeUp = { hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } } };
 
 /* ═════════════════════════════════════════════════════════════════
    MAIN WORKSPACE
@@ -467,7 +467,7 @@ export default function CurriculumWorkspace() {
       {/* ── CONTEXT PANEL ── */}
       <AnimatePresence>
         {panelOpen && (
-          <motion.aside initial={{ width: 0, opacity: 0 }} animate={{ width: 340, opacity: 1 }} exit={{ width: 0, opacity: 0 }} transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+          <motion.aside initial={{ width: 0, opacity: 0 }} animate={{ width: 340, opacity: 1 }} exit={{ width: 0, opacity: 0 }} transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             style={{ borderLeft: "1px solid var(--app-border-glow)", background: "var(--app-card)", display: "flex", flexDirection: "column", flexShrink: 0, overflow: "hidden" }}>
             <ContextPanel node={selectedNode} isEditing={editNodeId === selectedNode.id}
               onEdit={() => setEditNodeId(selectedNode.id)}
@@ -577,7 +577,7 @@ function OverviewMode({ data }: { data: CurriculumNode }) {
                       <span style={{ fontSize: "12px", fontWeight: 650, color: "var(--app-text-primary)" }}>{q}%</span>
                     </div>
                     <div style={{ height: 4, borderRadius: 99, background: "var(--app-border-glow)", overflow: "hidden" }}>
-                      <motion.div initial={{ width: 0 }} animate={{ width: `${q}%` }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                      <motion.div initial={{ width: 0 }} animate={{ width: `${q}%` }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                         style={{ height: "100%", borderRadius: 99, background: q > 90 ? "#16A34A" : q > 75 ? "#F59E0B" : "#DC2626" }} />
                     </div>
                   </div>
@@ -861,7 +861,7 @@ function KnowledgeMapMode({ data, onSelect }: { data: CurriculumNode, onSelect: 
                   </circle>
                 )}
                 <motion.circle cx={n.x} cy={n.y} r={r} fill="var(--app-card)" stroke={n.aiFlags?.length ? "#DC2626" : nodeColor} strokeWidth={isHov ? 2.5 : 1.8}
-                  initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+                  initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] as [number, number, number, number] }}
                   filter={isHov ? "url(#glow2)" : "none"} />
                 <text x={n.x} y={n.y + 4} textAnchor="middle" fontSize={n.type === "subject" ? 10 : 8} fontWeight="700" fill={n.aiFlags?.length ? "#DC2626" : nodeColor}>
                   {n.type === "subject" ? "S" : n.type === "topic" ? "T" : "C"}
@@ -1010,7 +1010,7 @@ function ContextPanel({ node, isEditing, onEdit, onSave, onCancel }: {
                       <span style={{ fontSize: "11px", fontWeight: 650, color: "var(--app-text-primary)" }}>{done}/{total}</span>
                     </div>
                     <div style={{ height: 4, borderRadius: 99, background: "var(--app-border-glow)", overflow: "hidden" }}>
-                      <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                      <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                         style={{ height: "100%", borderRadius: 99, background: pct === 100 ? "#16A34A" : "#FF6B00" }} />
                     </div>
                   </div>

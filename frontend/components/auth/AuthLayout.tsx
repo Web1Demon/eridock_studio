@@ -5,15 +5,24 @@ import { motion } from "framer-motion";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
+  spotlight?: {
+    quote: string;
+    attribution: string;
+    role: string;
+  };
+  stats?: {
+    label: string;
+    value: string;
+  }[];
 }
 
-const STATS = [
+const DEFAULT_STATS = [
   { value: "12,400+", label: "Lessons" },
   { value: "340",     label: "Experts" },
   { value: "96.4%",   label: "Quality" },
 ];
 
-export default function AuthLayout({ children }: AuthLayoutProps) {
+export default function AuthLayout({ children, spotlight, stats }: AuthLayoutProps) {
   return (
     <div className="min-h-screen flex bg-[#F9F8F6]">
 
@@ -83,7 +92,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           >
             <Link href="/" className="inline-flex items-center gap-3 group">
               <div
@@ -103,7 +112,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="max-w-[340px]"
           >
             <p
