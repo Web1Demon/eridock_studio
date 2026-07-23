@@ -640,7 +640,7 @@ function LevelOverviewPanel({ level, onUpdate, onAddItem, onDelete }: any) {
         ))}
       </div>
       <div style={{ display: "flex", gap: 10 }}>
-        <button onClick={() => onAddItem("lesson")} style={{ padding: "11px 20px", background: "var(--app-card)", border: "1px solid var(--app-border)", color: "var(--app-text-primary)", borderRadius: 11, fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer" }}>+ Lesson</button>
+        <button onClick={() => onAddItem("lesson")} style={{ padding: "11px 20px", background: "var(--app-card)", border: "1px solid var(--app-border)", color: "var(--app-text-primary)", borderRadius: 11, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>+ Lesson</button>
         <button onClick={() => onAddItem("checkpoint")} style={{ display: "flex", alignItems: "center", gap: 6, padding: "11px 20px", background: "rgba(220,38,38,0.08)", color: "#DC2626", borderRadius: 11, fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer" }}><Flag size={13} /> Checkpoint</button>
         <button onClick={onDelete} style={{ marginLeft: "auto", padding: "11px 20px", background: "rgba(220,38,38,0.06)", color: "#DC2626", borderRadius: 11, fontSize: "13px", fontWeight: 700, border: "1px solid rgba(220,38,38,0.12)", cursor: "pointer" }}>Delete Level</button>
       </div>

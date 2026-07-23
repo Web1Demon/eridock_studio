@@ -361,7 +361,7 @@ export default function ReviewsPage() {
                                       style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--app-border)", background: "var(--app-bg)", fontSize: "13px", fontFamily: "inherit", minHeight: 80, resize: "vertical" }}
                                     />
                                     <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
-                                      <button style={{ padding: "6px 12px", borderRadius: 6, background: "var(--app-card)", border: "1px solid var(--app-border)", color: "var(--app-text-primary)", border: "none", fontSize: "12px", fontWeight: 600, cursor: "pointer" }}>Save Note</button>
+                                      <button style={{ padding: "6px 12px", borderRadius: 6, background: "var(--app-card)", border: "1px solid var(--app-border)", color: "var(--app-text-primary)", fontSize: "12px", fontWeight: 600, cursor: "pointer" }}>Save Note</button>
                                     </div>
                                   </div>
                                 </motion.div>

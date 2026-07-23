@@ -825,7 +825,7 @@ function CreationWizard({onClose}:{onClose:()=>void}) {
                         return (
                           <button key={c.id} onClick={()=>{setCurriculum(c.id);setSubject(null);setTopic(null);setSubtopic(null);}}
                             style={{padding:"18px 20px",borderRadius:14,border:`2px solid ${selected?c.color:"var(--app-border-glow)"}`,background:selected?c.bg:"var(--app-card)",textAlign:"left",cursor:"pointer",position:"relative",transition:"all 0.2s",boxShadow:selected?`0 0 0 4px ${c.color}14`:"none"}}>
-                            {c.badge&&<div style={{position:"absolute",top:14,right:14,fontSize:"9px",fontWeight:800,color:selected?"var(--app-card)":c.color,background:selected?c.color:`${c.color}18`,padding:"3px 8px",borderRadius:20,transition:"all 0.2s"}}>{c.badge}</div>}
+                            {(c as any).badge&&<div style={{position:"absolute",top:14,right:14,fontSize:"9px",fontWeight:800,color:selected?"var(--app-card)":c.color,background:selected?c.color:`${c.color}18`,padding:"3px 8px",borderRadius:20,transition:"all 0.2s"}}>{(c as any).badge}</div>}
                             <div style={{display:"flex",alignItems:"flex-start",gap:14}}>
                               <div style={{width:36,height:36,borderRadius:10,background:selected?c.color:`${c.color}18`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,transition:"background 0.2s"}}>
                                 <GraduationCap size={18} color={selected?"var(--app-card)":c.color}/>
