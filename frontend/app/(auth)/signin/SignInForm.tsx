@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ─── Floating Label Input ─────────────────────────────────────────── */
@@ -313,6 +314,7 @@ function Divider() {
 
 /* ─── Main Form ────────────────────────────────────────────────────── */
 export default function SignInForm() {
+  const router = useRouter();
   const [email, setEmail]             = useState("");
   const [password, setPassword]       = useState("");
   const [showPwd, setShowPwd]         = useState(false);
@@ -343,6 +345,7 @@ export default function SignInForm() {
     setLoading(true);
     await new Promise((r) => setTimeout(r, 2000));
     setLoading(false);
+    router.push("/dashboard");
   };
 
   /* Stagger children */
